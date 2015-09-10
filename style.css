@@ -1,10 +1,6 @@
 body {
-	margin: 40px auto;
+	margin: auto;
 	max-width: 800px;
 	color: #444;
 	background-color: #EEE;
-}
-
-video {
-	background-color: #DDD;
 }
