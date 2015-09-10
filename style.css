@@ -1,0 +1,10 @@
+body {
+	margin: 40px auto;
+	max-width: 800px;
+	color: #444;
+	background-color: #EEE;
+}
+
+video {
+	background-color: #DDD;
+}
