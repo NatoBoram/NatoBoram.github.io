@@ -1,12 +1,10 @@
 body {
 	margin: auto;
-	max-width: 800px;
+	margin-top: 60px;
+	
+	min-width: 400px;
+	max-width: 50%;
+	
 	color: #444;
 	background-color: #EEE;
-	
-	/*
-	margin-top: 40px;
-	max-width: 50%;
-	min-width: 800px;
-	*/
 }
