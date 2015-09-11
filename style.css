@@ -1,6 +1,7 @@
 body {
 	margin: auto;
-	max-width: 800px;
+	max-width: 50%;
+	min-width: 800px;
 	color: #444;
 	background-color: #EEE;
 }
