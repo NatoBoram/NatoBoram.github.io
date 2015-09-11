@@ -1,7 +1,10 @@
 body {
 	margin: auto;
+	margin-top: 40px;
+	
 	max-width: 50%;
 	min-width: 800px;
+	
 	color: #444;
 	background-color: #EEE;
 }
