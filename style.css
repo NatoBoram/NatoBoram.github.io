@@ -10,3 +10,9 @@ body {
 	color: #444;
 	background-color: #EEE;
 }
+h1 {
+	margin-bottom: 10px;
+}
+hr {
+	margin-top: 20px;
+}
