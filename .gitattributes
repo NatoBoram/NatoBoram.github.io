@@ -1,0 +1,6 @@
+*.html text
+*.css text
+*.txt text
+*.xml text
+
+*.ttf binary
