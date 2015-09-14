@@ -1,14 +1,41 @@
+/* Firefox */
+@font-face {
+  font-family: "Liberation Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Liberation Sans"), url(/fonts/Liberation Sans/LiberationSans-Regular_0.ttf) format("ttf");
+}
+@font-face {
+  font-family: "Liberation Sans";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Liberation Sans Bold"), url(/fonts/Liberation Sans/LiberationSans-Bold_0.ttf) format("ttf");
+}
+/* Google Chrome */
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Open Sans"), url(/fonts/Open Sans/OpenSans-Regular.ttf) format("ttf");
+}
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Open Sans Bold"), url(/fonts/Open Sans/OpenSans-Bold.ttf) format("ttf");
+}
+/* Internet Explorer */
 @font-face {
   font-family: "Calibri";
   font-style: normal;
   font-weight: 400;
-  src: local("Calibri"), url(/fonts/calibri.ttf) format("ttf");
+  src: local("Calibri"), url(/fonts/Calibri/calibri.ttf) format("ttf");
 }
 @font-face {
   font-family: "Calibri";
   font-style: normal;
   font-weight: 700;
-  src: local("Calibri Bold"), url(/fonts/calibrib.ttf) format("ttf");
+  src: local("Calibri Bold"), url(/fonts/Calibri/calibrib.ttf) format("ttf");
 }
 
 body {
@@ -31,7 +58,7 @@ hr {
 }
 
 .gecko body {
-	font-family: "Open Sans";
+	font-family: "Liberation Sans";
 }
 .chrome body {
 	font-family: "Noto Sans";
