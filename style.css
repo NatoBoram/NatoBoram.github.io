@@ -2,7 +2,13 @@
   font-family: "Calibri";
   font-style: normal;
   font-weight: 400;
-  src: local('Calibri'), url(/fonts/Calibri.ttf) format('ttf');
+  src: local("Calibri"), url(/fonts/calibri.ttf) format("ttf");
+}
+@font-face {
+  font-family: "Calibri";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Calibri Bold"), url(/fonts/calibrib.ttf) format("ttf");
 }
 
 body {
