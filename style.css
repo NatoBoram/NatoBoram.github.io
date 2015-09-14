@@ -17,10 +17,11 @@ hr {
 	margin-top: 20px;
 }
 
-/* Browser Specific Fonts
+/* Firefox Font
 .gecko body {
 	font-family: "Ubuntu";
 }
+*/
 .chrome body {
 	font-family: "Noto Sans";
 }
@@ -30,4 +31,3 @@ hr {
 .ie body {
 	font-family: "Calibri";
 }
-*/
