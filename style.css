@@ -1,3 +1,10 @@
+@font-face {
+  font-family: "Calibri";
+  font-style: normal;
+  font-weight: 400;
+  src: local('Calibri'), url(/fonts/Calibri.ttf) format('ttf');
+}
+
 body {
 	margin: auto;
 	margin-top: 60px;
