@@ -16,3 +16,16 @@ h1 {
 hr {
 	margin-top: 20px;
 }
+
+.gecko {
+	font-family: "Ubuntu";
+}
+.chrome {
+	font-family: "Noto Sans";
+}
+.safari {
+	font-family: "Helvetica";
+}
+.ie {
+	font-family: "Calibri";
+}
