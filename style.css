@@ -17,15 +17,15 @@ hr {
 	margin-top: 20px;
 }
 
-.gecko {
+.gecko body {
 	font-family: "Ubuntu";
 }
-.chrome {
+.chrome body {
 	font-family: "Noto Sans";
 }
-.safari {
+.safari body {
 	font-family: "Helvetica";
 }
-.ie {
+.ie body {
 	font-family: "Calibri";
 }
