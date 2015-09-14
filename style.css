@@ -16,3 +16,18 @@ h1 {
 hr {
 	margin-top: 20px;
 }
+
+/* Browser Specific Fonts
+.gecko body {
+	font-family: "Ubuntu";
+}
+.chrome body {
+	font-family: "Noto Sans";
+}
+.safari body {
+	font-family: "Helvetica";
+}
+.ie body {
+	font-family: "Calibri";
+}
+*/
