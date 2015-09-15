@@ -1,43 +1,44 @@
 /* Firefox */
 @font-face {
-  font-family: "Liberation Sans";
-  font-style: normal;
-  font-weight: 400;
-  src: local("Liberation Sans"), url(/fonts/Liberation Sans/LiberationSans-Regular_0.ttf) format("ttf");
+	font-family: "Liberation Sans";
+	font-style: normal;
+	font-weight: 400;
+	src: local("Liberation Sans"), url(/fonts/Liberation Sans/LiberationSans-Regular_0.ttf) format("ttf");
 }
 @font-face {
-  font-family: "Liberation Sans";
-  font-style: normal;
-  font-weight: 700;
-  src: local("Liberation Sans Bold"), url(/fonts/Liberation Sans/LiberationSans-Bold_0.ttf) format("ttf");
+	font-family: "Liberation Sans";
+	font-style: normal;
+	font-weight: 700;
+	src: local("Liberation Sans Bold"), url(/fonts/Liberation Sans/LiberationSans-Bold_0.ttf) format("ttf");
 }
 /* Google Chrome */
 @font-face {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 400;
-  src: local("Open Sans"), url(/fonts/Open Sans/OpenSans-Regular.ttf) format("ttf");
+	font-family: "Open Sans";
+	font-style: normal;
+	font-weight: 400;
+	src: local("Open Sans"), url(/fonts/Open Sans/OpenSans-Regular.ttf) format("ttf");
 }
 @font-face {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 400;
-  src: local("Open Sans Bold"), url(/fonts/Open Sans/OpenSans-Bold.ttf) format("ttf");
+	font-family: "Open Sans";
+	font-style: normal;
+	font-weight: 400;
+	src: local("Open Sans Bold"), url(/fonts/Open Sans/OpenSans-Bold.ttf) format("ttf");
 }
 /* Internet Explorer */
 @font-face {
-  font-family: "Calibri";
-  font-style: normal;
-  font-weight: 400;
-  src: local("Calibri"), url(/fonts/Calibri/calibri.ttf) format("ttf");
+	font-family: "Calibri";
+	font-style: normal;
+	font-weight: 400;
+	src: local("Calibri"), url(/fonts/Calibri/calibri.ttf) format("ttf");
 }
 @font-face {
-  font-family: "Calibri";
-  font-style: normal;
-  font-weight: 700;
-  src: local("Calibri Bold"), url(/fonts/Calibri/calibrib.ttf) format("ttf");
+	font-family: "Calibri";
+	font-style: normal;
+	font-weight: 700;
+	src: local("Calibri Bold"), url(/fonts/Calibri/calibrib.ttf) format("ttf");
 }
 
+/* Page */
 body {
 	margin: auto;
 	margin-top: 60px;
@@ -57,6 +58,7 @@ hr {
 	margin-top: 20px;
 }
 
+/* Browser Specific Fonts */
 .gecko body {
 	font-family: "Liberation Sans";
 }
