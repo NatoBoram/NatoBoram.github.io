@@ -14,10 +14,12 @@ body {
 h1 {
 	margin-bottom: 10px;
 }
+h1 img {
+	margin-right: 20px;
+}
 hr {
 	margin-top: 20px;
 }
-
 
 #menu {
 	background-image: url("http://cathyprimeau.com/wp-content/uploads/2012/10/4217-fond-papier-peint-WallFizz4.jpg");
@@ -30,9 +32,9 @@ hr {
 	color: #EEE;
 	text-align: center;
 	text-transform: uppercase;
+	font-size: 60px;
+	padding-top: 100px;
 }
-
-
 
 @font-face {
   font-family: 'Open Sans';
