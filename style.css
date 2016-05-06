@@ -6,7 +6,7 @@ body {
 	min-width: 800px;
 	max-width: 50%;
 	
-	font-family: "Open Sans";
+	font-family: 'Open Sans';
 	
 	color: #444;
 	background-color: #EEE;
@@ -17,7 +17,7 @@ h1 img {
 	top: 22px;
 }
 h1 {
-	font-family: "Open Sans Condensed";
+	font-family: 'Open Sans Condensed';
 	text-transform: uppercase;
 }
 
