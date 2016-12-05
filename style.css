@@ -4,28 +4,33 @@ body {
 	margin-top: 60px;
 	
 	min-width: 800px;
-	max-width: 50%;
+	max-width: 61.803398875%;
 	
 	font-family: 'Open Sans';
 	
 	color: #444;
 	background-color: #EEE;
 }
+
+/* Title */
 h1 img {
 	margin-right: 20px;
 	position: relative;
 	top: 22px;
 }
 h1 {
+	color: #222;
 	font-family: 'Open Sans Condensed';
 	text-transform: uppercase;
 }
 
+/* Menu */
 #menu {
 	background-image: url("https://c7.staticflickr.com/3/2950/15329065150_11c287f85d_b.jpg");
 	background-repeat: no-repeat;
 	background-position: center;
-    height: 400px;
+	background-size: cover;
+	height: 400px;
 }
 #menu h1 {
 	color: #EEE;
@@ -34,25 +39,27 @@ h1 {
 	padding-top: 100px;
 }
 
+/* Navbar */
 #navbar {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	position: relative;
-	top: 124px;
-	overflow: hidden;
-	background-color: #000;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #000;
 	opacity: .9;
+	margin-top: 170px;
+    width: 100%;
 }
 #navbar li {
-	float: left;
+    float: left;
+	min-width: 25%;
 }
 #navbar a {
-	display: block;
-	color: #FFF;
-	padding: 16px 35%;
-	text-align: center;
-	text-decoration: none;
+    display: block;
+    color: #FFF;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 	text-transform: uppercase;
 	font-weight: bold;
 }

@@ -1,4 +1,2 @@
 User-agent: *
-Disallow: /include/
-Disallow: /fonts/
 Disallow: /private/
