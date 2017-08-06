@@ -1,2 +1,2 @@
 # natoboram.github.io
-Nothing to see here.
+This is a website that I use to showcase my personal projects.
