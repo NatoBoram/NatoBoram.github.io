@@ -1,0 +1,38 @@
+body {
+	margin: 30px;
+	background-color: #DDD;
+	color: #444;
+}
+
+.page-header {
+	text-align: center;
+	margin: 35px;
+}
+
+table {
+	margin: auto;
+	text-align: center;
+	vertical-align: center;
+}
+
+th, td {
+	width: 30px;
+	height: 30px;
+}
+
+td {
+	border: solid;
+	text-align: center;
+}
+
+pre {
+	margin-top: 10px;
+}
+
+.btn{
+	border: 2px solid gray;
+}
+
+.col-md-4{
+	margin-top:50px;
+}

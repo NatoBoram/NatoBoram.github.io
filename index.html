@@ -1,40 +1,103 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>Nato Boram</title>
-		<!-- <base href="http://natoboram.github.io/" /> -->
-		<link rel="icon" type="image/png" href="logo.png" />
-		<link href="style.css" rel="stylesheet" type="text/css" />
+<html lang="en-CA">
 
-		<script>
-			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-		  
-			ga('create', 'UA-38044037-2', 'auto');
-			ga('send', 'pageview');
-		  
-		  </script>
-	</head>
-	<body>
-		<header>
-			<h1><image src="logo.png"/>Nato Boram</h1>
-			<div id="menu" >
-				<h1>Nato Boram</h1>
-				<ul id="navbar">
-					<li><a href="http://natoboram.github.io/" id="active">Home</a></li>
-					<li><a href="index.html">Profiles</a></li>
-					<li><a href="projects/">Projects</a></li>
-					<li><a href="index.html">About</a></li>
-				</ul> 
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<!-- Bootstrap JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<!-- Local -->
+	<link rel="icon" type="image/png" href="logo.png" />
+	<link href="style.css" rel="stylesheet" type="text/css" />
+	<title>Nato Boram</title>
+
+	<!-- Google Analytics -->
+	<script>
+		(function (i, s, o, g, r, a, m) {
+			i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+				(i[r].q = i[r].q || []).push(arguments)
+			}, i[r].l = 1 * new Date(); a = s.createElement(o),
+				m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+		ga('create', 'UA-38044037-2', 'auto');
+		ga('send', 'pageview');
+	</script>
+</head>
+
+<body>
+
+	<!-- Navbar -->
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+
+			<!-- Mobile View -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>                        
+				</button>
+				<a class="navbar-brand" href="https://natoboram.github.io">Nato Boram</a>
 			</div>
-		</header>
 
-		<main>
-		</main>
+			<!-- Desktop View -->
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="./about">About</a></li>
+					<li><a href="./projects">Projects</a></li>
+					<li><a href="./contact">Contact</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 
-		<footer>
-		</footer>
-	</body>
+	<div class="jumbotron">
+		<div class="container text-center">
+			<h1>This is me</h1>
+			<p>A student endlessly trying to finish college</p>
+		</div>
+	</div>
+
+	<div class="container-fluid bg-3 text-center">
+		<h2>Some of my projects</h2><br />
+		<div class="row">
+			<div class="col-sm-4 col-md-3">
+				<h3>Yamato</h3>
+				<p>A Battleship AI that uses a neural network to learn how to play.</p>
+				<p>Do you dare to <a href="./battleship">challenge it</a>?</p>
+			</div>
+			<div class="col-sm-4 col-md-3">
+				<h3>Smart Team Builder</h3>
+				<p>A program that helps you build balanced teams with your friends.</p>
+				<p>Get it on <a href="https://www.microsoft.com/store/apps/9pkmlmnmxfql">Windows 10</a>.</p>
+			</div>
+			<div class="col-sm-4 col-md-3">
+				
+			</div>
+			<div class="col-sm-4 col-md-3">
+				
+			</div>
+		</div>
+	</div><br>
+
+	<br />
+	<br />
+
+	<!-- Footer -->
+	<footer class="container-fluid text-center">
+		<p></p>
+	</footer>
+
+</body>
+
 </html>

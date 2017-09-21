@@ -1,106 +1,21 @@
-/* Page */
-body {
-	margin: auto;
-	margin-top: 60px;
-	
-	min-width: 800px;
-	max-width: 61.803398875%;
-	
-	font-family: 'Open Sans';
-	
-	color: #333;
-	background-color: #EEE;
+/* https://c7.staticflickr.com/3/2950/15329065150_11c287f85d_b.jpg */
+
+
+/* Remove the navbar's default margin-bottom and rounded borders */
+
+.navbar {
+	margin-bottom: 0;
+	border-radius: 0;
 }
 
-/* Title */
-h1 img {
-	margin-right: 20px;
-	position: relative;
-	top: 22px;
-}
-h1, h2 {
-	color: #222;
-	font-family: 'Open Sans Condensed';
-	text-transform: uppercase;
+
+/* Add a gray background color and some padding to the footer */
+
+footer {
+	background-color: #f2f2f2;
+	padding: 25px;
 }
 
-/* Menu */
-#menu {
-	background-image: url("https://c7.staticflickr.com/3/2950/15329065150_11c287f85d_b.jpg");
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
-	height: 400px;
-}
-#menu h1 {
-	color: #EEE;
-	text-align: center;
-	font-size: 60px;
-	padding-top: 100px;
-}
-
-/* Navbar */
-#navbar {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #000;
-	opacity: .9;
-	margin-top: 170px;
-    width: 100%;
-}
-#navbar li {
-    float: left;
-	min-width: 25%;
-}
-#navbar a {
-    display: block;
-    color: #FFF;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-	text-transform: uppercase;
-	font-weight: bold;
-}
-#active {
-	background-color: #111;
-}
-#navbar a:hover {
-	background-color: #222;
-}
-
-/* Content */
-h3 {
-	color: #222;
-	font-family: 'Open Sans Condensed';
-}
-h4 {
-	color: #222;
-	font-family: 'Open Sans';
-}
-ul {
-	list-style-type: none;
-}
-
-@font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3VtXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
-}
-@font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Open Sans Bold'), local('OpenSans-Bold'), url(https://fonts.gstatic.com/s/opensans/v13/k3k702ZOKiLJc3WVjuplzOgdm0LZdjqr5-oayXSOefg.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
-}
-@font-face {
-  font-family: 'Open Sans Condensed';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Open Sans Condensed Bold'), local('OpenSans-CondensedBold'), url(https://fonts.gstatic.com/s/opensanscondensed/v10/gk5FxslNkTTHtojXrkp-xIF8zhZCJ7x9Pr62cRgaVUA.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+.w10-store-badge {
+	max-width: 200px;
 }

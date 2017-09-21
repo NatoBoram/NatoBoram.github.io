@@ -1,13 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-CA">
 
 <head>
-	<title>Projects</title>
-	<base href="https://natoboram.github.io/" />
-	<link rel="icon" type="image/png" href="logo.png" />
-	<link href="style.css" rel="stylesheet" type="text/css" />
-	<meta charset="UTF-8">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<!-- Bootstrap JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<!-- Local -->
+	<link rel="icon" type="image/png" href="logo.png" />
+	<link href="../style.css" rel="stylesheet" type="text/css" />
+	<title>Nato Boram's Projects</title>
+
+	<!-- Google Analytics -->
 	<script>
 		(function (i, s, o, g, r, a, m) {
 			i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
@@ -22,61 +34,43 @@
 </head>
 
 <body>
-	<header>
-		<h1>
-			<image src="logo.png" />Nato Boram</h1>
-		<div id="menu">
-			<h1>Nato Boram</h1>
-			<ul id="navbar">
-				<li><a href="http://natoboram.github.io/">Home</a></li>
-				<li><a href="index.html">Profiles</a></li>
-				<li><a href="http://natoboram.github.io/projects/" id="active">Projects</a></li>
-				<li><a href="index.html">About</a></li>
-			</ul>
+	<!-- Navbar -->
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+
+			<!-- Mobile View -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>                        
+					</button>
+				<a class="navbar-brand" href="https://natoboram.github.io">Nato Boram</a>
+			</div>
+
+			<!-- Desktop View -->
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li><a href="../">Home</a></li>
+					<li><a href="./about">About</a></li>
+					<li class="active"><a href="./projects">Projects</a></li>
+					<li><a href="./contact">Contact</a></li>
+				</ul>
+			</div>
 		</div>
-	</header>
+	</nav>
 
-	<main>
-		<h2>Projects</h2>
-		<p>These are my open-source GPLv3 java projects.</p>
-		<h3>Java</h3>
-		<ul>
-			<li>
-				<h4>Matchmaking</h4>
-				<p>This program wants to help you sort your League of Legends friends into two equally skilled teams.</p>
-			</li>
-			<li>
-				<h4>Minecraft RCON</h4>
-				<p>Simple RCON program made in Java with the help of other open-source projects. Thanks guys!</p>
-			</li>
-			<li>
-				<h4>Note</h4>
-				<p>Not sure you're going to pass this semester? This will tell you exactly what you need in order to pass.</p>
-			</li>
-			<li>
-				<h4>Pokémon Bank</h4>
-				<p>Wanna catch 'em all? This helper will tell you exactly where in your Pokémon Bank you should sort your Pokémon.</p>
-			</li>
-			<li>
-				<h4>Syllable</h4>
-				<p>Random name generator with a few settings. This thing is harder to make than it looks like!</p>
-			</li>
-		</ul>
-		<h3>WesternTea</h3>
-		<p>The WesternTea suite is a bunch of plugins for Spigot servers that are a necessity to any great server.</p>
-		<ul>
-			<li>
-				<h4>Core</h4>
-				<p>This plugin is here to save your server some serious pain. It will automatically close the server when the last player
-					disconnects to save everything properly.</p>
-			</li>
-			<li>
-				<h4>Effects</h4>
-				<p>Lightning Bolts!</p>
-			</li>
-		</ul>
-	</main>
+	<div class="container bg-3">
+		<h3>Projects</h3>
+		<p></p>
+		<hr />
 
+		<h4>Smart Team Builder</h4>
+		<p>It's more fun when teams are balanced. Fight your friends with honor, fair and square!</p>
+		<a href="https://www.microsoft.com/store/apps/9pkmlmnmxfql?ocid=badge"><img src="https://assets.windowsphone.com/f2f77ec7-9ba9-4850-9ebe-77e366d08adc/English_Get_it_Win_10_InvariantCulture_Default.png" alt="Get it on Windows 10" class="w10-store-badge" /></a>
+		<hr />
+
+	</div>
 	<footer>
 	</footer>
 </body>
