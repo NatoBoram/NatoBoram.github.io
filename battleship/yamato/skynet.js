@@ -15,6 +15,10 @@ function newNetwork() {
 	console.log("Created a new neural network.");
 }
 
+/**
+ * Changes the Learning Rate.
+ * @param {Number} newConstant 
+ */
 function changeLearningRate(newConstant) {
 	for (var c = 0; c < perceptrons.length; c++) {
 		perceptrons[c].setLearningRate(newConstant);
@@ -33,7 +37,11 @@ function saveNetwork() {
  */
 function loadNetwork() {
 	if (localStorage.getItem("network") === null) {
-		loadTrainedNetwork();
+		perceptrons = JSON.parse(getBackup());
+		for (var c = 0; c < perceptrons.length; c++) {
+			perceptrons[c] = Object.assign(new Perceptron, perceptrons[c]);
+		}
+		console.log("Loaded a pre-trained neural network.");
 	} else {
 		perceptrons = JSON.parse(localStorage.getItem("network"));
 		for (var c = 0; c < perceptrons.length; c++) {
@@ -55,7 +63,7 @@ function skynetSelect(inputGrid) {
 	for (var c = 0; c < perceptrons.length; c++) {
 		neuronScores.push(perceptrons[c].feedforward(inputGrid));
 	}
-	console.log(neuronScores);
+	//console.log(neuronScores);
 
 	// Select the max score
 	var max = Number.NEGATIVE_INFINITY;
@@ -73,7 +81,7 @@ function skynetSelect(inputGrid) {
 			maxArray.push(c);
 		}
 	}
-	console.log(maxArray);
+	//console.log(maxArray);
 
 	// Select randomly
 	var position = maxArray[Math.floor(Math.random() * maxArray.length)];
@@ -88,7 +96,7 @@ function skynetSelect(inputGrid) {
  * @param {Array} inputGrid 
  * @param {Number} desired 
  */
-function skynetLearn(selection, inputGrid, desired) {
+function learn(selection, inputGrid, desired) {
 	perceptrons[selection].train(inputGrid, desired);
 	saveNetwork();
 }
@@ -104,7 +112,7 @@ function exportJSON() {
 	var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(json));
 	var a = document.createElement('a');
 	a.href = 'data:' + data;
-	a.download = 'skynet.json';
+	a.download = 'brain.json';
 	a.innerHTML = 'download JSON';
 
 	var container = document.getElementById('useless');
@@ -155,12 +163,3 @@ function fileRead(event) {
 // get min
 
 // the rest
-
-
-function loadTrainedNetwork() {
-	perceptrons = JSON.parse(getBackup());
-	for (var c = 0; c < perceptrons.length; c++) {
-		perceptrons[c] = Object.assign(new Perceptron, perceptrons[c]);
-	}
-	console.log("Loaded a trained neural network.");
-}

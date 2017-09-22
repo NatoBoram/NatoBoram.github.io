@@ -1,11 +1,9 @@
 body {
-	margin: 30px;
 	background-color: #DDD;
 	color: #444;
 }
 
-.page-header {
-	text-align: center;
+header {
 	margin: 35px;
 }
 
@@ -16,23 +14,17 @@ table {
 }
 
 th, td {
-	width: 30px;
+	min-width: 30px;
 	height: 30px;
+	text-align: center;
+	vertical-align: center;
 }
 
 td {
 	border: solid;
-	text-align: center;
 }
 
-pre {
-	margin-top: 10px;
-}
-
-.btn{
-	border: 2px solid gray;
-}
-
-.col-md-4{
-	margin-top:50px;
+.btn-default {
+	background-color: white;
+	border: solid 1px #BBB;
 }

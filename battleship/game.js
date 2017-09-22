@@ -2,6 +2,8 @@
  * This region contains everything needed to simplify the coding experience.
  */
 
+var timeToDuel = false;
+
 /** Empty grid, very useful later on */
 function emptyGrid() {
 	var emptyGrid = new Array();
@@ -48,16 +50,16 @@ function getVision(grid) {
 function colorCell(td, grid, position) {
 	switch (grid[position]) {
 		case -1:
-			td.style.backgroundColor = "MintCream";
+			td.style.backgroundColor = "mintcream";
 			break;
 		case 0:
-			td.style.backgroundColor = "LightBlue";
+			td.style.backgroundColor = "lightblue";
 			break;
 		case 1:
-			td.style.backgroundColor = "OrangeRed";
+			td.style.backgroundColor = "orangered";
 			break;
 		case 2:
-			td.style.backgroundColor = "Gray";
+			td.style.backgroundColor = "gray";
 			break;
 	}
 }
@@ -70,90 +72,125 @@ function showGrids() {
 		for (var y = 0; y < 10; y++) {
 			var position = 10 * x + y;
 			var td = document.getElementById("agentTable").getElementsByTagName("td")[position];
-			colorCell(td, getVision(agentGrid), position)
+			if (playerWantsTrueSight()) {
+				colorCell(td, agentGrid, position);
+			}
+			else {
+				colorCell(td, getVision(agentGrid), position);
+			}
 
 			var td = document.getElementById("playerTable").getElementsByTagName("td")[position];
 			colorCell(td, playerGrid, position)
 		}
 	}
 }
-
+/**
+ * Change only one cell of the grids for better performances
+ * @param {Number} position 
+ */
 function showChange(position) {
 	var td = document.getElementById("agentTable").getElementsByTagName("td")[position];
-	colorCell(td, getVision(agentGrid), position)
-
+	if (playerWantsTrueSight()) {
+		colorCell(td, agentGrid, position);
+	}
+	else {
+		colorCell(td, getVision(agentGrid), position);
+	}
 	var td = document.getElementById("playerTable").getElementsByTagName("td")[position];
-	colorCell(td, playerGrid, position)
+	colorCell(td, playerGrid, position);
 }
 
 /**
  * Create a new game
  */
-function newGame() {
-	console.log("Creating a new game!");
+async function newGame() {
+	console.clear();
 	agentGrid = emptyGrid();
 	playerGrid = emptyGrid();
-	placerTousLesBateaux(playerGrid);
-	placerTousLesBateaux(agentGrid);
-	//placerTousLesBateauxProf(playerGrid);
-	//placerTousLesBateauxProf(agentGrid);
+	switch (getBoatSelection()) {
+		case "classic":
+			console.log("Creating a new classic game!");
+			placerTousLesBateaux(playerGrid);
+			placerTousLesBateaux(agentGrid);
+			break;
+		case "prof":
+			console.log("Creating a new prof game!");
+			placerTousLesBateauxProf(playerGrid);
+			placerTousLesBateauxProf(agentGrid);
+			break;
+		default:
+			alert("Can't create a new game!");
+			break;
+	}
 	showGrids();
 }
 
 /** Créer le onClick */
 async function playerClick() {
+	if (!timeToDuel) {
 
-	// Check if player's selection is valid
-	if (this.style.backgroundColor == "lightblue" && isGameOver() == false) {
+		// Check if player's selection is valid
+		if (((this.style.backgroundColor == "lightblue") || (this.style.backgroundColor == "gray")) && !isGameOver()) {
 
-		// Where is the click?
-		this.innerHTML = "playerClick";
+			// Where is the click?
+			this.innerHTML = "playerClick";
 
-		// Find playerClick
-		var agentTable = document.getElementById("agentTable").getElementsByTagName("td");
-		for (var x = 0; x < 10; x++) {
-			for (var y = 0; y < 10; y++) {
-				if (agentTable[10 * x + y].innerHTML == "playerClick") {
+			// Find playerClick
+			var agentTable = document.getElementById("agentTable").getElementsByTagName("td");
+			for (var x = 0; x < 10; x++) {
+				for (var y = 0; y < 10; y++) {
+					if (agentTable[10 * x + y].innerHTML == "playerClick") {
 
-					// Remove dummy text
-					agentTable[10 * x + y].innerHTML = "";
+						// Remove dummy text
+						agentTable[10 * x + y].innerHTML = null;
 
-					// Apply to agentGrid
-					if (agentGrid[10 * x + y] == 0) {
-						agentGrid[10 * x + y] = -1;
-						skynetLearn(10 * x + y, getVision(agentGrid), 0);
-					} else if (agentGrid[10 * x + y] == 2) {
-						agentGrid[10 * x + y] = 1;
-						skynetLearn(10 * x + y, getVision(agentGrid), 1);
-					} else {
-						console.log("Player has made an illegal move."); // Unreachable code
+						// Apply to agentGrid
+						if (agentGrid[10 * x + y] == 0) {
+							agentGrid[10 * x + y] = -1;
+							learn(10 * x + y, getVision(agentGrid), 0);
+						} else if (agentGrid[10 * x + y] == 2) {
+							agentGrid[10 * x + y] = 1;
+							learn(10 * x + y, getVision(agentGrid), 1);
+						} else {
+							console.log("Player has made an illegal move."); // Unreachable code
+						}
 					}
 				}
 			}
+
+			// Show what the player just did
+			showGrids();
+
+			// If GameOver, the agent can't play
+			if (isGameOver() == false) {
+				cpu(playerGrid, "Yamato");
+				//cpu(playerGrid, "Random");
+			}
+
+			// Call Game Over!
+			if (isGameOver()) {
+				console.log("Game over!");
+				await sleep(1);
+
+				// Alert Game Over
+				if (getWinner() == "Player") {
+					var element = document.createElement("div");
+					element.className = "alert alert-success alert-dismissable";
+					element.innerHTML = '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>Victory!';
+					document.getElementById("alert-container").appendChild(element);
+				} else if (getWinner() == "Agent") {
+					var element = document.createElement("div");
+					element.className = "alert alert-danger alert-dismissable";
+					element.innerHTML = '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>Defeat!';
+					document.getElementById("alert-container").appendChild(element);
+				}
+			}
+
+		} else if (isGameOver()) {
+			newGame(0);
+		} else {
+			console.log(this.style.backgroundColor);
 		}
-
-		// Show what the player just did
-		showGrids();
-
-		// If GameOver, the agent can't play
-		if (isGameOver() == false) {
-			cpu(playerGrid, "Skynet");
-			//cpu(playerGrid, "Random");
-		}
-
-		// Call Game Over!
-		if (isGameOver()) {
-			console.log("Game over!");
-			await sleep(1);
-			alert("Game over!");
-		}
-
-	} else if (isGameOver()) {
-		newGame();
-
-	} else {
-		console.log(this.style.backgroundColor);
-		alert("Please select a valid target.");
 	}
 }
 
@@ -164,38 +201,29 @@ async function playerClick() {
  */
 function cpu(grid, cpuType) {
 	var vision = getVision(grid);
-
 	switch (cpuType) {
+		case "Yamato":
 
-		case "Skynet":
-
-			// Skynet
+			// Yamato
 			var selection = skynetSelect(vision)
-
-			// Illegal move?
-			if (vision[selection] == 0) {
-				var result = agentApply(grid, selection);
-				skynetLearn(selection, vision, result);
-			} else {
-				skynetLearn(selection, vision, 0);
-				console.log("Illegal move.");
-				// cpu(grid, cpuType);
-			}
+			var result = agentApply(grid, selection);
+			learn(selection, vision, result);
 
 			// Show it on the grid
 			showChange(selection);
 			break;
-
 		case "Random":
 
 			// Random
 			var selection = randomAgent(vision);
 			var result = agentApply(grid, selection);
-			skynetLearn(selection, vision, result);
+			learn(selection, vision, result);
 
 			// Show it on the grid
 			showChange(selection);
 			break;
+		default:
+			alert("I was asked to play the CPU's turn but I don't know which one!");
 	}
 }
 
@@ -209,22 +237,27 @@ function agentApply(grid, position) {
 		case 0:
 			grid[position] = -1;
 			return 0;
-			break;
 		case 2:
 			grid[position] = 1;
 			return 1;
-			break;
+		default:
+			// In case of illegal move
+			return 0;
 	}
-
-	// In case of illegal move
-	return 0;
 }
 
 /**
- * Est-ce que la partie est terminée?
- * @return {boolean}
+ * Vérifie si partie est terminée
 */
 function isGameOver() {
+	if (getWinner() != "None") {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+function getWinner() {
 
 	// Theory : Everyone is dead
 	var playerIsDead = true;
@@ -246,8 +279,14 @@ function isGameOver() {
 		}
 	}
 
-	// Is one of them dead? If not, return false.
-	return (playerIsDead || agentIsDead);
+	// Who's dead?
+	if (!playerIsDead && agentIsDead) {
+		return "Player";
+	} else if (!agentIsDead && playerIsDead) {
+		return "Agent";
+	}
+
+	return "None";
 }
 
 /* Script
@@ -259,7 +298,6 @@ var agentGrid = emptyGrid();
 var playerGrid = emptyGrid();
 
 window.onload = function () {
-	showGrids();
 
 	// Add OnClick everywhere!
 	for (var x = 0; x < document.getElementById("agentTable").getElementsByTagName("td").length; x++) {
@@ -269,6 +307,8 @@ window.onload = function () {
 	// Load the neural network
 	loadNetwork();
 	//newNetwork(); // Start with a new network!
+
+	newGame();
 }
 
 /* Buttons
@@ -278,50 +318,86 @@ window.onload = function () {
 /**
  * Machine Learning
  */
-async function AIvsRandom() {
-	while (true) {
+async function beginTraining() {
+
+	// Display
+	document.getElementById("btnTrain").style.display = "none";
+	document.getElementById("btnStop").style.display = "block";
+	timeToDuel = true;
+
+	while (timeToDuel) {
 		newGame();
 		while (!isGameOver()) {
 
-			// Skynet
+			// CPU 1
 			if (!isGameOver()) {
-				cpu(agentGrid, "Skynet");
+				cpu(agentGrid, "Yamato");
+				await sleep(1);
 			}
 
-			// Random
+			// CPU 2
 			if (!isGameOver()) {
-				cpu(playerGrid, "Random");
+				cpu(playerGrid, "Yamato");
+				await sleep(1);
 			}
-
-			// So I can actually see what's happening!
-			await sleep(1);
 		}
+
+		// Small pause between games
 		await sleep(100);
 	}
 }
 
-async function AIvsAI() {
-	while (true) {
-		newGame();
-		while (!isGameOver()) {
-
-			// Skynet
-			if (!isGameOver()) {
-				cpu(agentGrid, "Skynet");
-			}
-
-			// Random
-			if (!isGameOver()) {
-				cpu(playerGrid, "Skynet");
-			}
-
-			// So I can actually see what's happening!
-			await sleep(1);
-		}
-		await sleep(100);
-	}
+/**
+ * Stops Yamato's training.
+ */
+function stopTraining() {
+	document.getElementById("btnTrain").style.display = "block";
+	document.getElementById("btnStop").style.display = "none";
+	timeToDuel = false;
 }
 
+/**
+ * Sleep for ms milliseconds.
+ * @param {Number} ms 
+ */
 function sleep(ms) {
 	return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+/**
+ * Get the selected list of boats.
+ * Returns "classic" or "prof".
+ * @return {String}
+ */
+function getBoatSelection() {
+	var b = document.getElementById("ships").value;
+	return b;
+}
+
+/**
+ * Get the desired value of the whole grid.
+ * @param {Array} grid 
+ * @return {Array}
+ */
+function getTrueVision(grid) {
+	var trueVision = new Array();
+	for (x in grid) {
+		switch (grid[x]) {
+			case 1, 2:
+				trueVision.push(1);
+				break;
+			default:
+				trueVision.push(0);
+				break;
+		}
+	}
+	return trueVision;
+}
+
+/**
+ * Get whether the player wanted True Sight or not.
+ * @return {Boolean}
+ */
+function playerWantsTrueSight() {
+	return document.getElementById("PlayerTrueSight").checked;
 }
