@@ -103,10 +103,13 @@ function showChange(position) {
 /**
  * Create a new game
  */
-async function newGame() {
-	console.clear();
+function newGame() {
+
+	// Clean up
 	agentGrid = emptyGrid();
 	playerGrid = emptyGrid();
+
+	// Place boats
 	switch (getBoatSelection()) {
 		case "classic":
 			console.log("Creating a new classic game!");
@@ -122,6 +125,10 @@ async function newGame() {
 			alert("Can't create a new game!");
 			break;
 	}
+
+	// Visible
+	console.clear();
+	document.getElementById("alert-container").innerHTML = "";
 	showGrids();
 }
 
@@ -187,7 +194,7 @@ async function playerClick() {
 			}
 
 		} else if (isGameOver()) {
-			newGame(0);
+			newGame();
 		} else {
 			console.log(this.style.backgroundColor);
 		}
