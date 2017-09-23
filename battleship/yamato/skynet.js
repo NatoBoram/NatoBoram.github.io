@@ -107,19 +107,8 @@ function learn(selection, inputGrid, desired) {
  * Creates a .json file and downloads it.
  */
 function exportJSON() {
-	var json = perceptrons;
-
-	var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(json));
-	var a = document.createElement('a');
-	a.href = 'data:' + data;
-	a.download = 'brain.json';
-	a.innerHTML = 'download JSON';
-
-	var container = document.getElementById('useless');
-	container.appendChild(a);
-	a.click();
-
-	a.remove();
+	var blob = new Blob([JSON.stringify(perceptrons)], {type: "text/json;charset=utf-8"});
+	saveAs(blob, "yamato.json");
 }
 
 /**
@@ -139,18 +128,6 @@ function importJSON() {
 	reader.readAsText(f[0]);
 }
 
-/**
- * Called when the load event fires on the FileReader.
- * The target of the event is the FileReader object instance.
- * The result property of the FileReader contains the file contents.
- * @param {Event} event
- */
-function fileRead(event) {
-	perceptrons = JSON.parse(event.target.result);
-	for (var c = 0; c < perceptrons.length; c++) {
-		perceptrons[c] = Object.assign(new Perceptron, perceptrons[c]);
-	}
-}
 
 // Place ships
 
