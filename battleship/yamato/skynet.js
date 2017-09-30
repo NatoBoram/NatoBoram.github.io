@@ -116,7 +116,9 @@ function learn(selection, inputGrid, desired) {
  * Creates a .json file and downloads it.
  */
 function exportJSON() {
-	var blob = new Blob([JSON.stringify(perceptrons)], {type: "text/json;charset=utf-8"});
+	var blob = new Blob([JSON.stringify(perceptrons)], {
+		type: "text/json;charset=utf-8"
+	});
 	saveAs(blob, "yamato.json");
 }
 

@@ -46,7 +46,7 @@ function getVision(grid) {
  * @param {} td
  * @param {Array} grid
  * @param {number} position
-*/
+ */
 function colorCell(td, grid, position) {
 	switch (grid[position]) {
 		case -1:
@@ -74,8 +74,7 @@ function showGrids() {
 			var td = document.getElementById("agentTable").getElementsByTagName("td")[position];
 			if (playerWantsTrueSight()) {
 				colorCell(td, agentGrid, position);
-			}
-			else {
+			} else {
 				colorCell(td, getVision(agentGrid), position);
 			}
 
@@ -92,8 +91,7 @@ function showChange(position) {
 	var td = document.getElementById("agentTable").getElementsByTagName("td")[position];
 	if (playerWantsTrueSight()) {
 		colorCell(td, agentGrid, position);
-	}
-	else {
+	} else {
 		colorCell(td, getVision(agentGrid), position);
 	}
 	var td = document.getElementById("playerTable").getElementsByTagName("td")[position];
@@ -255,7 +253,7 @@ function agentApply(grid, position) {
 
 /**
  * Vérifie si partie est terminée
-*/
+ */
 function isGameOver() {
 	if (getWinner() != "None") {
 		return true;
