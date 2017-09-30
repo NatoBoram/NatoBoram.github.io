@@ -38,11 +38,7 @@ function saveNetwork() {
  */
 function loadNetwork() {
 	if (localStorage.getItem("network") === null) {
-		perceptrons = JSON.parse(getBackup());
-		for (var c = 0; c < perceptrons.length; c++) {
-			perceptrons[c] = Object.assign(new Perceptron, perceptrons[c]);
-		}
-		console.log("Loaded a pre-trained neural network.");
+		useBackup();
 	} else {
 		perceptrons = JSON.parse(localStorage.getItem("network"));
 		for (var c = 0; c < perceptrons.length; c++) {
@@ -50,6 +46,18 @@ function loadNetwork() {
 		}
 		console.log("Loaded an existing neural network.");
 	}
+}
+
+/**
+ * Use the backup in Backup.js
+ */
+function useBackup() {
+	perceptrons = JSON.parse(getBackup());
+	for (var c = 0; c < perceptrons.length; c++) {
+		perceptrons[c] = Object.assign(new Perceptron, perceptrons[c]);
+	}
+	saveNetwork();
+	console.log("Loaded a pre-trained neural network.");
 }
 
 /**
