@@ -14,14 +14,18 @@ table {
 }
 
 th, td {
-	min-width: 30px;
-	height: 30px;
+	min-width: 35px;
+	height: 35px;
 	text-align: center;
 	vertical-align: center;
 }
 
 td {
 	border: solid;
+}
+
+form, #alert-container {
+	margin-top: 35px;
 }
 
 .btn-default {
