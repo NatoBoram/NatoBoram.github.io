@@ -6,7 +6,8 @@ var perceptrons = new Array();
  */
 function newNetwork() {
 	var inputs = 100;
-	var n = 1 / 1000;
+	// var n = 1 / 1000;
+	var n = 1;
 	perceptrons = new Array();
 	for (var c = 0; c < inputs; c++) {
 		perceptrons.push(new Perceptron(inputs, n));
@@ -114,18 +115,16 @@ function exportJSON() {
 /**
  * Selects a JSON file and imports it.
  */
-function importJSON() {
-	var i = document.getElementById("file-input");
-	var f = i.files;
-
-	// Create a FileReader object to read the file
+async function importJSON() {
+	// MDN
+	var selectedFile = document.getElementById("file-input").files[0];
 	var reader = new FileReader();
-
-	// Add an event listener for the onloaded event
-	reader.addEventListener("load", fileRead, false);
-
-	// When the file is loaded, fileRead will be called
-	reader.readAsText(f[0]);
+	await reader.readAsText(selectedFile);
+	perceptrons = JSON.parse(reader.result);
+	for (var x in perceptrons) {
+		perceptrons[x] = Object.assign(new Perceptron, perceptrons[x]);
+	}
+	console.log("Imported a neural network!");
 }
 
 

@@ -127,7 +127,7 @@ function newGame() {
 	}
 
 	// Visible
-	console.clear();
+	//console.clear();
 	document.getElementById("alert-container").innerHTML = "";
 	showGrids();
 }
