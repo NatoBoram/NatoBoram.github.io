@@ -191,9 +191,9 @@ NeuralNetwork.prototype.train = function (inputs_array, targets_array) {
 	this.wih.add(deltaW_hidden);
 
 	// Lower Learning Rate
-	var x = 1 / this.lr
-	x += this.lr
-	this.lr = 1 / x
+	//var x = 1 / this.lr
+	//x += this.lr
+	//this.lr = 1 / x
 }
 
 /**

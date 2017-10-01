@@ -6,7 +6,7 @@
  * @return {NeuralNetwork}
  */
 function newNN(inputs, hidden, outputs) {
-	return new NeuralNetwork(inputs, hidden, outputs, 1, "tanh");
+	return new NeuralNetwork(inputs, hidden, outputs, 1/100, "tanh");
 }
 
 /**
@@ -28,7 +28,7 @@ function saveNN() {
 function loadNN() {
 	if (localStorage.getItem("nn") === null) {
 		//nn = JSON.parse(getBackup());
-		nn = newNN(100, 100, 100);
+		nn = newNN(100, 1, 100);
 		//nn = Object.assign(new NeuralNetwork, nn);
 		//console.log("Loaded a pre-trained neural network.");
 		console.log("Loaded a new neural network.");
@@ -36,7 +36,7 @@ function loadNN() {
 		nn = JSON.parse(localStorage.getItem("nn"));
 		nn = Object.assign(new NeuralNetwork, nn);
 		nn.wih = Object.assign(new Matrix, nn.wih);
-		nn.woh = Object.assign(new Matrix, nn.woh);
+		nn.who = Object.assign(new Matrix, nn.who);
 		//nn = nn.copy();
 		console.log("Loaded an existing neural network.");
 	}
@@ -84,9 +84,10 @@ function nnSelect(inputGrid) {
  * @param {Number} desired 
  */
 function learn(selection, inputGrid, desired) {
-	var target = nn.query(inputGrid);
+	//var target = nn.query(inputGrid);
+	var target = getTrueVision(inputGrid);
 	target[selection] = desired;
-	nn.train(inputGrid, target)
+	nn.train(inputGrid, target);
 	saveNN();
 }
 

@@ -33,7 +33,8 @@ function Matrix(rows, cols) {
  * @return {Number}
  */
 function random(min, max) {
-	return Math.random() * (max - min) + min
+	return Math.random() * (max - min) + min;
+	//return 0;
 }
 
 /**
@@ -43,7 +44,7 @@ Matrix.prototype.randomize = function (radius) {
 	for (var i = 0; i < this.rows; i++) {
 		for (var j = 0; j < this.cols; j++) {
 			// this.matrix[i][j] = randomGaussian();
-			this.matrix[i][j] = random(radius, radius);
+			this.matrix[i][j] = random(-radius, radius);
 		}
 	}
 }
