@@ -210,7 +210,9 @@ function cpu(grid, cpuType) {
 		case "Yamato":
 
 			// Yamato
-			var selection = skynetSelect(vision)
+			var selection = skynetSelect(vision);
+			//var selection = nnSelect(vision);
+			
 			var result = agentApply(grid, selection);
 			learn(selection, vision, result);
 
@@ -311,6 +313,7 @@ window.onload = function () {
 
 	// Load the neural network
 	loadNetwork();
+	//loadNN();
 	//newNetwork(); // Start with a new network!
 
 	newGame();
