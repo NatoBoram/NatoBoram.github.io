@@ -2,151 +2,169 @@
 <html lang="en-CA">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+	<!-- Bootstrap -->
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-
 	<!-- jQuery library -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-	<link rel="stylesheet" href="./style.css" />
-	
-	<script src="game.js"></script>
-	
+	<!-- Style -->
+	<link rel="stylesheet" href="style/style.css" />
+
+	<!-- Sript -->
+	<script src="script/game.js"></script>
+
 	<title>Checkers</title>
 </head>
 
 <body>
-<div class="container">
-	<table>
-		<tr>
-			<th></th>
-			<th>A</th>
-			<th>B</th>
-			<th>C</th>
-			<th>D</th>
-			<th>E</th>
-			<th>F</th>
-			<th>G</th>
-			<th>H</th>
-			<th></th>
-		</tr>
-		<tr>
-			<th>1</th>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<th>1</th>
-		</tr>
-		<tr>
-			<th>2</th>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<th>2</th>
-		</tr>
-		<tr>
-			<th>3</th>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<th>3</th>
-		</tr>
-		<tr>
-			<th>4</th>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<th>4</th>
-		</tr>
-		<tr>
-			<th>5</th>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<th>5</th>
-		</tr>
-		<tr>
-			<th>6</th>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<th>6</th>
-		</tr>
-		<tr>
-			<th>7</th>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<th>7</th>
-		</tr>
-		<tr>
-			<th>8</th>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<th>8</th>
-		</tr>
-		<tr>
-			<th></th>
-			<th>A</th>
-			<th>B</th>
-			<th>C</th>
-			<th>D</th>
-			<th>E</th>
-			<th>F</th>
-			<th>G</th>
-			<th>H</th>
-			<th></th>
-		</tr>
-	</table>
-</div>
+
+	<header>
+		<div class="container-fluid">
+			<div class="jumbotron">
+				<h1>Checkers</h1>
+				<p>Below is an argent which has been trained to play Checkers.</p>
+			</div>
+		</div>
+	</header>
+
+	<main>
+		<div class="container">
+
+			<table>
+				<tr>
+					<th></th>
+					<th>1</th>
+					<th>2</th>
+					<th>3</th>
+					<th>4</th>
+					<th>5</th>
+					<th>6</th>
+					<th>7</th>
+					<th>8</th>
+					<th></th>
+				</tr>
+				<tr>
+					<th>1</th>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<th>1</th>
+				</tr>
+				<tr>
+					<th>2</th>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<th>2</th>
+				</tr>
+				<tr>
+					<th>3</th>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<th>3</th>
+				</tr>
+				<tr>
+					<th>4</th>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<th>4</th>
+				</tr>
+				<tr>
+					<th>5</th>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<th>5</th>
+				</tr>
+				<tr>
+					<th>6</th>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<th>6</th>
+				</tr>
+				<tr>
+					<th>7</th>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<th>7</th>
+				</tr>
+				<tr>
+					<th>8</th>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<th>8</th>
+				</tr>
+				<tr>
+					<th></th>
+					<th>1</th>
+					<th>2</th>
+					<th>3</th>
+					<th>4</th>
+					<th>5</th>
+					<th>6</th>
+					<th>7</th>
+					<th>8</th>
+					<th></th>
+				</tr>
+
+		</div>
+		</table>
+	</main>
+
+	<footer>
+		
+	</footer>
 </body>
 
 </html>
