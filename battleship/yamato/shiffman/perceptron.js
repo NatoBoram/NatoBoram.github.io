@@ -54,9 +54,9 @@ Perceptron.prototype.train = function (inputs, desired) {
 	}
 
 	// Lower the learning rate
-	var x = 1 / this.c
-	x += this.c
-	this.c = 1 / x
+	//var x = 1 / this.c
+	//x += this.c
+	//this.c = 1 / x
 }
 
 /**

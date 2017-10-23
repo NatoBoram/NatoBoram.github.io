@@ -9,8 +9,8 @@ var perceptrons = new Array();
  */
 function newNetwork() {
 	var inputs = 100;
-	// var n = 1 / 1000;
-	var n = 1;
+	var n = 1 / inputs;
+	// var n = 1;
 	perceptrons = new Array();
 	for (var c = 0; c < inputs; c++) {
 		perceptrons.push(new Perceptron(inputs, n));
@@ -346,6 +346,8 @@ function learnFromDefeat(grid) {
 	for (var c = 0; c < grid.length; c++) {
 		if (grid[c] == 2) {
 			perceptrons[c].train(getVision(grid), 1);
+		} else if (grid[c] == 0 && getBoatSelection() == "random") {
+			perceptrons[c].train(getVision(grid), 0);
 		}
 	}
 }
