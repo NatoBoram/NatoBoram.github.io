@@ -131,6 +131,13 @@ function newGame() {
 			placeAllShipsProf(playerGrid)
 			placeAllShipsProf(agentGrid)
 			break;
+		case "random":
+			// console.log("Creating a new random game!");
+
+			// Random
+			placerTousLesBateaux(playerGrid);
+			placerTousLesBateaux(agentGrid);
+			break;
 		default:
 			alert("Can't create a new game!");
 			break;
