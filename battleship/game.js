@@ -338,6 +338,11 @@ window.onload = function () {
  * This region contains buttons.
  */
 
+var fast = false;
+function trainFast() {
+	fast = document.getElementById("TrainFast").checked;
+}
+
 /**
  * Machine Learning
  */
@@ -355,13 +360,13 @@ async function beginTraining() {
 			// CPU 1
 			if (!isGameOver()) {
 				cpu(agentGrid, "Yamato");
-				await sleep(1);
+				if (!fast) { await sleep(1); }
 			}
 
 			// CPU 2
 			if (!isGameOver()) {
 				cpu(playerGrid, "Yamato");
-				await sleep(1);
+				if (!fast) { await sleep(1); }
 			}
 		}
 
