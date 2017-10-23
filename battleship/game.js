@@ -268,11 +268,20 @@ function agentApply(grid, position) {
 /**
  * Vérifie si partie est terminée
  */
+var fastSave = 0;
 function isGameOver() {
 	if (getWinner() != "None") {
 		learnFromDefeat(playerGrid);
 		learnFromDefeat(agentGrid);
-		saveNetwork();
+		if (fast) {
+			if (fastSave++ == 1000) {
+				saveNetwork();
+				fastSave = 0;
+				console.log("Network saved.");
+			}
+		} else {
+			saveNetwork();
+		}
 		return true;
 	} else {
 		return false;
