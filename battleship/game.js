@@ -277,7 +277,6 @@ function isGameOver() {
 			if (fastSave++ == 1000) {
 				saveNetwork();
 				fastSave = 0;
-				console.log("Network saved.");
 			}
 		} else {
 			saveNetwork();
