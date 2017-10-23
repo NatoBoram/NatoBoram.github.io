@@ -346,8 +346,6 @@ function learnFromDefeat(grid) {
 	for (var c = 0; c < grid.length; c++) {
 		if (grid[c] == 2) {
 			perceptrons[c].train(getVision(grid), 1);
-		} else if (grid[c] == 0) {
-			perceptrons[c].train(getVision(grid), 0);
 		}
 	}
 }
