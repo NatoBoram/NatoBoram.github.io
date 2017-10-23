@@ -29,6 +29,7 @@ form, #alert-container {
 }
 
 .btn-default {
-	background-color: white;
-	border: solid 1px #BBB;
+	color: #333;
+	background-color: #fff;
+	border-color: #ccc;
 }

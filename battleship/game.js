@@ -110,14 +110,26 @@ function newGame() {
 	// Place boats
 	switch (getBoatSelection()) {
 		case "classic":
-			console.log("Creating a new classic game!");
-			placerTousLesBateaux(playerGrid);
-			placerTousLesBateaux(agentGrid);
+			// console.log("Creating a new classic game!");
+
+			// Random
+			//placerTousLesBateaux(playerGrid);
+			//placerTousLesBateaux(agentGrid);
+
+			// Smart
+			placeAllShips(playerGrid)
+			placeAllShips(agentGrid)
 			break;
 		case "prof":
-			console.log("Creating a new prof game!");
-			placerTousLesBateauxProf(playerGrid);
-			placerTousLesBateauxProf(agentGrid);
+			// console.log("Creating a new prof game!");
+
+			// Random
+			//placerTousLesBateauxProf(playerGrid);
+			//placerTousLesBateauxProf(agentGrid);
+
+			// Smart
+			placeAllShipsProf(playerGrid)
+			placeAllShipsProf(agentGrid)
 			break;
 		default:
 			alert("Can't create a new game!");
@@ -212,7 +224,7 @@ function cpu(grid, cpuType) {
 			// Yamato
 			var selection = skynetSelect(vision);
 			//var selection = nnSelect(vision);
-			
+
 			var result = agentApply(grid, selection);
 			learn(selection, vision, result);
 
@@ -258,6 +270,9 @@ function agentApply(grid, position) {
  */
 function isGameOver() {
 	if (getWinner() != "None") {
+		learnFromDefeat(playerGrid);
+		learnFromDefeat(agentGrid);
+		saveNetwork();
 		return true;
 	} else {
 		return false;
@@ -351,7 +366,7 @@ async function beginTraining() {
 		}
 
 		// Small pause between games
-		await sleep(100);
+		await sleep(1);
 	}
 }
 

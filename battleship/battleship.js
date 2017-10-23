@@ -14,14 +14,24 @@ function placerBateau(size, grid) {
 		valide,
 		orientationChoisie;
 	do {
+		
+		// X and Y
 		pos1 = Math.floor(Math.random() * 10);
 		pos2 = Math.floor(Math.random() * 10);
+		
+		// Confirmation
 		bateauPlace = false;
+
+		// Orientations
 		allOrientations = [0, 1, 2, 3];
 		orientationsValides = [];
 		orientationsRestantes = [];
+
+		// Confirmation
 		valide = true;
+
 		if (verifierBateau(pos1, pos2, grid)) {
+			
 			//Vérifie si l'extrémité du bateau reste à l'intérieur de la grille et ajoute les orientations valides dans le Array
 			if (verifierExtremiteBateau(pos1, pos2 + size)) {
 				orientationsValides.push("0")
@@ -198,16 +208,27 @@ function placerTousLesBateauxProf(grid) {
 	placerBateau(2, grid);
 }
 
-//OnLoad
-//Bateaux de Yamato
-//placerBateau(5, agentGrid);
-//placerBateau(4, agentGrid);
-//placerBateau(3, agentGrid);
-//placerBateau(3, agentGrid);
-//placerBateau(2, agentGrid);
-//Bateaux du Joueur
-//placerBateau(5, playerGrid);
-//placerBateau(4, playerGrid);
-//placerBateau(3, playerGrid);
-//placerBateau(3, playerGrid);
-//placerBateau(2, playerGrid);
+/**
+ * Use its neural network to place all of its ships.
+ * @param {Array} grid 
+ */
+function placeAllShips(grid) {
+	placeShip(grid, 5);
+	placeShip(grid, 4);
+	placeShip(grid, 3);
+	placeShip(grid, 3);
+	placeShip(grid, 2);
+}
+
+/**
+ * Use its neural network to place all of its ships. Use the teacher's ships.
+ * @param {Array} grid 
+ */
+function placeAllShipsProf(grid) {
+	placeShip(grid, 4);
+	placeShip(grid, 3);
+	placeShip(grid, 3);
+	placeShip(grid, 2);
+	placeShip(grid, 2);
+	placeShip(grid, 2);
+}
