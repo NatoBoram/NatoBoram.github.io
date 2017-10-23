@@ -278,8 +278,12 @@ function agentApply(grid, position) {
 var fastSave = 0;
 function isGameOver() {
 	if (getWinner() != "None") {
+
+		// Learn
 		learnFromDefeat(playerGrid);
 		learnFromDefeat(agentGrid);
+
+		// Save
 		if (fast) {
 			if (fastSave++ == 1000) {
 				saveNetwork();
@@ -288,6 +292,28 @@ function isGameOver() {
 		} else {
 			saveNetwork();
 		}
+
+		// Efficiency
+		var zeros = 0;
+		for (var c = 0; c < 100; c++) {
+			if (getVision(playerGrid)[c] == 0) {
+				zeros++;
+			}
+		}
+		document.getElementById("efficiency").innerText = zeros + "%";
+		if (zeros >= 100 - 1 * (5 + 4 + 3 + 3 + 2)) {
+			document.getElementById("efficiency").className = "text-primary"; // Impossible
+		} else if (zeros >= 100 - 2 * (5 + 4 + 3 + 3 + 2)) {
+			document.getElementById("efficiency").className = "text-success"; // Success
+		} else if (zeros >= 100 - 3 * (5 + 4 + 3 + 3 + 2)) {
+			document.getElementById("efficiency").className = ""; // Normal
+		} else if (zeros >= 100 - 4 * (5 + 4 + 3 + 3 + 2)) {
+			document.getElementById("efficiency").className = "text-warning"; // Warning
+		} else {
+			document.getElementById("efficiency").className = "text-danger"; // Danger
+		}
+
+		// Return
 		return true;
 	} else {
 		return false;
